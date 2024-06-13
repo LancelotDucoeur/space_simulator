@@ -94,7 +94,7 @@ void Planet::draw() const {
     glColor3f(1.0f, 1.0f, 1.0f); // Mettre la couleur de base à blanc
     glPushMatrix();
     glTranslatef(x / AU, y / AU, z / AU); // Convertir en unités astronomiques pour l'affichage
-    glRotatef(rotationAngle * 180.0 / M_PI, 0.0, 1.0, 0.0); // Appliquer la rotation
+    glRotatef(rotationAngle * 180.0 / M_PI, 0.0, 0.0, 1.0); // Appliquer la rotation
     GLUquadric* quad = gluNewQuadric();
     gluQuadricTexture(quad, GL_TRUE); // Activer le texturage
     gluSphere(quad, radius / AU, 32, 32); // Convertir en unités astronomiques pour l'affichage

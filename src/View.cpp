@@ -63,7 +63,7 @@ void display(const std::vector<Planet>& planets) {
 
     gluLookAt(cameraX, cameraY, cameraZ,  // Position de la caméra
               planets[planetFocus].x / AU, planets[planetFocus].y / AU, planets[planetFocus].z / AU,  // Point de référence (planète)
-              0.0, 1.0, 0.0);         // Vecteur "up"
+              0.0, -1.0, 0.0);         // Vecteur "up"
 
     for (const auto& planet : planets) {
         planet.draw();
