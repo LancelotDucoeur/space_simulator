@@ -96,7 +96,7 @@ int main() {
     // Saturne
     double saturnDistance = 9.58 * AU;
     double saturnOrbitalSpeed = sqrt(G * SUN_MASS / saturnDistance);
-    planets.emplace_back(saturnDistance, 0.0, 0.0, 58232000.0, 5.6834e26, 1.0f, 1.0f, 0.5f, "textures/saturn.jpeg", 2 * M_PI / (0.44 * DAY));
+    planets.emplace_back(saturnDistance, 0.0, 0.0, 58232000.0, 5.6834e26, 1.0f, 1.0f, 0.5f, "textures/saturn.jpeg", 2 * M_PI / (0.44 * DAY), "textures/saturn_ring.png");
     planets.back().vy = saturnOrbitalSpeed;
 
     // Uranus
