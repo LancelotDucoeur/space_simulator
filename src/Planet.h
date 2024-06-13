@@ -19,10 +19,13 @@ public:
     double mass;         // Masse de la planète (en kg)
     double radius;       // Rayon de la planète (en mètres)
     float r, g, b;       // Couleur de la planète
+    double rotationSpeed; // Vitesse de rotation (radians par seconde)
+    double rotationAngle; // Angle de rotation actuel (radians)
+    
     GLuint texture;      // Texture de la planète
     std::vector<std::pair<double, double>> trajectory; // Trajectoire pour le tracé
 
-    Planet(double _x, double _y, double _z, double _radius, double _mass, float _r, float _g, float _b, const char* texturePath);
+    Planet(double _x, double _y, double _z, double _radius, double _mass, float _r, float _g, float _b, const char* texturePath,  double _axialRotationSpeed);
 
     void applyForce(double fx, double fy, double fz);
     void update(double dt);

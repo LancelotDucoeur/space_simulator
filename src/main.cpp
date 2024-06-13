@@ -55,60 +55,60 @@ int main() {
 
     std::vector<Planet> planets;
     // Soleil
-    planets.emplace_back(0.0, 0.0, 0.0, 696340000.0, SUN_MASS, 1.0f, 1.0f, 0.0f, "textures/sun.jpeg"); 
+    planets.emplace_back(0.0, 0.0, 0.0, 696340000.0, SUN_MASS, 1.0f, 1.0f, 0.0f, "textures/sun.jpeg", 2 * M_PI / (25 * DAY)); 
 
     // Mercure
     double mercuryDistance = 0.39 * AU;
     double mercuryOrbitalSpeed = sqrt(G * SUN_MASS / mercuryDistance);
-    planets.emplace_back(mercuryDistance, 0.0, 0.0, 2439700.0, 3.3011e23, 0.5f, 0.5f, 0.5f, "textures/mercury.jpg");
+    planets.emplace_back(mercuryDistance, 0.0, 0.0, 2439700.0, 3.3011e23, 0.5f, 0.5f, 0.5f, "textures/mercury.jpg", 2 * M_PI / (58.6 * DAY));
     planets.back().vy = mercuryOrbitalSpeed;
 
     // Vénus
     double venusDistance = 0.72 * AU;
     double venusOrbitalSpeed = sqrt(G * SUN_MASS / venusDistance);
-    planets.emplace_back(venusDistance, 0.0, 0.0, 6051800.0, 4.8675e24, 1.0f, 0.5f, 0.0f, "textures/venus.jpg");
+    planets.emplace_back(venusDistance, 0.0, 0.0, 6051800.0, 4.8675e24, 1.0f, 0.5f, 0.0f, "textures/venus.jpg", -2 * M_PI / (243 * DAY));
     planets.back().vy = venusOrbitalSpeed;
 
     // Terre
     double earthDistance = AU; // Distance entre la Terre et le Soleil en mètres
     double earthOrbitalSpeed = sqrt(G * SUN_MASS / earthDistance);
-    planets.emplace_back(earthDistance, 0.0, 0.0, 6371000.0, 5.972e24, 0.0f, 0.0f, 1.0f, "textures/earth.jpeg");   
+    planets.emplace_back(earthDistance, 0.0, 0.0, 6371000.0, 5.972e24, 0.0f, 0.0f, 1.0f, "textures/earth.jpeg", 2 * M_PI / DAY);   
     planets.back().vy = earthOrbitalSpeed;
 
     // Lune
     double moonDistance = 384400 * 1000; // Distance Terre-Lune en mètres
     double moonOrbitalSpeed = sqrt(G * 5.972e24 / moonDistance);
-    planets.emplace_back(earthDistance + moonDistance, 0.0, 0.0, 1737100.0, 7.347e22, 1.0f, 1.0f, 1.0f, "textures/moon.jpeg");
+    planets.emplace_back(earthDistance + moonDistance, 0.0, 0.0, 1737100.0, 7.347e22, 1.0f, 1.0f, 1.0f, "textures/moon.jpeg", 2 * M_PI / (27.3 * DAY));
     planets.back().vy = earthOrbitalSpeed + moonOrbitalSpeed;
 
     // Mars
     double marsDistance = 1.524 * AU; // Distance entre Mars et le Soleil en mètres
     double marsOrbitalSpeed = sqrt(G * SUN_MASS / marsDistance);
-    planets.emplace_back(marsDistance, 0.0, 0.0, 3389500.0, 6.39e23, 1.0f, 0.0f, 0.0f, "textures/mars.jpeg");   
+    planets.emplace_back(marsDistance, 0.0, 0.0, 3389500.0, 6.39e23, 1.0f, 0.0f, 0.0f, "textures/mars.jpeg", 2 * M_PI / (1.03 * DAY));   
     planets.back().vy = marsOrbitalSpeed;
 
     // Jupiter
     double jupiterDistance = 5.2 * AU;
     double jupiterOrbitalSpeed = sqrt(G * SUN_MASS / jupiterDistance);
-    planets.emplace_back(jupiterDistance, 0.0, 0.0, 69911000.0, 1.8982e27, 1.0f, 0.5f, 0.0f, "textures/jupiter.jpeg");
+    planets.emplace_back(jupiterDistance, 0.0, 0.0, 69911000.0, 1.8982e27, 1.0f, 0.5f, 0.0f, "textures/jupiter.jpeg", 2 * M_PI / (0.41 * DAY));
     planets.back().vy = jupiterOrbitalSpeed;
 
     // Saturne
     double saturnDistance = 9.58 * AU;
     double saturnOrbitalSpeed = sqrt(G * SUN_MASS / saturnDistance);
-    planets.emplace_back(saturnDistance, 0.0, 0.0, 58232000.0, 5.6834e26, 1.0f, 1.0f, 0.5f, "textures/saturn.jpeg");
+    planets.emplace_back(saturnDistance, 0.0, 0.0, 58232000.0, 5.6834e26, 1.0f, 1.0f, 0.5f, "textures/saturn.jpeg", 2 * M_PI / (0.44 * DAY));
     planets.back().vy = saturnOrbitalSpeed;
 
     // Uranus
     double uranusDistance = 19.2 * AU;
     double uranusOrbitalSpeed = sqrt(G * SUN_MASS / uranusDistance);
-    planets.emplace_back(uranusDistance, 0.0, 0.0, 25362000.0, 8.6810e25, 0.5f, 1.0f, 1.0f, "textures/uranus.jpeg");
+    planets.emplace_back(uranusDistance, 0.0, 0.0, 25362000.0, 8.6810e25, 0.5f, 1.0f, 1.0f, "textures/uranus.jpeg", 2 * M_PI / (0.72 * DAY));
     planets.back().vy = uranusOrbitalSpeed;
 
     // Neptune
     double neptuneDistance = 30.05 * AU;
     double neptuneOrbitalSpeed = sqrt(G * SUN_MASS / neptuneDistance);
-    planets.emplace_back(neptuneDistance, 0.0, 0.0, 24622000.0, 1.02413e26, 0.5f, 0.0f, 1.0f, "textures/neptune.jpeg");
+    planets.emplace_back(neptuneDistance, 0.0, 0.0, 24622000.0, 1.02413e26, 0.5f, 0.0f, 1.0f, "textures/neptune.jpeg", 2 * M_PI / (0.67 * DAY));
     planets.back().vy = neptuneOrbitalSpeed;
 
     double simulationTime = 0.0; // Temps écoulé en secondes
@@ -130,7 +130,7 @@ int main() {
         }
 
         // Mettre à jour les positions des planètes
-        double dt = 60 * 60 * 24; // Intervalle de temps en secondes (1 jour)
+        double dt = 60 * 60 * 24 / 365; // Intervalle de temps en secondes (1 jour)
         for (auto& planet : planets) {
             planet.update(dt);
         }

@@ -8,9 +8,9 @@
 #include <cmath>
 #include <iostream>
 
-Planet::Planet(double _x, double _y, double _z, double _radius, double _mass, float _r, float _g, float _b, const char* texturePath)
+Planet::Planet(double _x, double _y, double _z, double _radius, double _mass, float _r, float _g, float _b, const char* texturePath, double _rotationSpeed)
     : x(_x), y(_y), z(_z), radius(_radius), mass(_mass), r(_r), g(_g), b(_b),
-      vx(0.0), vy(0.0), vz(0.0), ax(0.0), ay(0.0), az(0.0) {
+      vx(0.0), vy(0.0), vz(0.0), ax(0.0), ay(0.0), az(0.0), rotationSpeed(_rotationSpeed), rotationAngle(0.0) {
 
     // Charger la texture
     glGenTextures(1, &texture);
@@ -49,6 +49,12 @@ void Planet::update(double dt) {
     z += vz * dt;
     ax = ay = az = 0.0;  // Réinitialiser l'accélération après mise à jour
 
+    // Mettre à jour l'angle de rotation
+    rotationAngle += rotationSpeed * dt;
+    if (rotationAngle > 2 * M_PI) {
+        rotationAngle -= 2 * M_PI; // Maintenir l'angle entre 0 et 2π
+    }
+
     // Ajouter la position actuelle à la trajectoire
     trajectory.push_back({x / AU, y / AU}); // Convertir en unités astronomiques pour le tracé
     if (trajectory.size() > 1000) { // Limiter la longueur de la trajectoire
@@ -66,6 +72,7 @@ void Planet::draw() const {
     glColor3f(1.0f, 1.0f, 1.0f); // Mettre la couleur de base à blanc
     glPushMatrix();
     glTranslatef(x / AU, y / AU, z / AU); // Convertir en unités astronomiques pour l'affichage
+    glRotatef(rotationAngle * 180.0 / M_PI, 0.0, 1.0, 0.0); // Appliquer la rotation
     GLUquadric* quad = gluNewQuadric();
     gluQuadricTexture(quad, GL_TRUE); // Activer le texturage
     gluSphere(quad, radius / AU, 32, 32); // Convertir en unités astronomiques pour l'affichage

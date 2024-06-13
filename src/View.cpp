@@ -9,7 +9,7 @@
 // Définir des variables globales pour le zoom et la rotation
 static double zoomFactor = 0.0001; // Facteur de zoom initial (en unités astronomiques)
 static const double zoomIncrement = 0.001; // Incrément de zoom
-int planetFocus = 3; // Index de la planète à focaliser (Mercure)
+int planetFocus = 3; // Index de la planète à focaliser
 
 static double cameraTheta = 0.0; // Angle de rotation autour de l'axe Y (horizontal)
 static double cameraPhi = 0.0;   // Angle de rotation autour de l'axe X (vertical)
